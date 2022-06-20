@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6370:6379"
+    restart: always
+    volumes:
+      - ./.data/redis-data:/var/lib/redis
+      - ./.data/redis.conf:/usr/local/etc/redis/redis.conf
