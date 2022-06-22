@@ -7,13 +7,13 @@ import { RegisterAndLoginInput } from './dto/register.input';
 export class AuthResolver {
   constructor(private readonly authService: AuthService) {}
 
-  @Mutation(() => String)
-  login(@Args('data') data: RegisterAndLoginInput) {
+  @Mutation(() => Auth)
+  login(@Args('data') data: RegisterAndLoginInput): Promise<Auth> {
     return this.authService.login(data);
   }
 
-  @Mutation(() => String)
-  updateAuth(@Args('data') data: RegisterAndLoginInput) {
+  @Mutation(() => Auth)
+  register(@Args('data') data: RegisterAndLoginInput): Promise<Auth> {
     return this.authService.register(data);
   }
 
